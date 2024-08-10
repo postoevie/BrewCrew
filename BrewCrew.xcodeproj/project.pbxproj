@@ -11,6 +11,12 @@
 		5222FB9F2C5B1F5A000D9110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222FB9E2C5B1F5A000D9110 /* ContentView.swift */; };
 		5222FBA32C5B1F5C000D9110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5222FBA22C5B1F5C000D9110 /* Assets.xcassets */; };
 		5222FBA62C5B1F5C000D9110 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5222FBA52C5B1F5C000D9110 /* Preview Assets.xcassets */; };
+		522F65CF2C67B27B004F766E /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F65CE2C67B27B004F766E /* Consts.swift */; };
+		522F65D62C67B429004F766E /* BeverageContainersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F65D52C67B429004F766E /* BeverageContainersListView.swift */; };
+		522F65D82C67B450004F766E /* BeveragesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F65D72C67B450004F766E /* BeveragesListView.swift */; };
+		522F65DA2C67B46E004F766E /* BeverageEditForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F65D92C67B46E004F766E /* BeverageEditForm.swift */; };
+		522F65DC2C67BE35004F766E /* BeverageContainerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F65DB2C67BE35004F766E /* BeverageContainerEditView.swift */; };
+		522F65DF2C67C03F004F766E /* NumberFormatter+Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F65DE2C67C03F004F766E /* NumberFormatter+Brew.swift */; };
 		52D108682C64FC34009FD324 /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D108672C64FC34009FD324 /* Beverage.swift */; };
 		52D1086A2C65DA0C009FD324 /* BeverageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D108692C65DA0C009FD324 /* BeverageCategory.swift */; };
 		52D1086C2C65DA18009FD324 /* BeverageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1086B2C65DA18009FD324 /* BeverageContainer.swift */; };
@@ -22,6 +28,12 @@
 		5222FB9E2C5B1F5A000D9110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5222FBA22C5B1F5C000D9110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5222FBA52C5B1F5C000D9110 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		522F65CE2C67B27B004F766E /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		522F65D52C67B429004F766E /* BeverageContainersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageContainersListView.swift; sourceTree = "<group>"; };
+		522F65D72C67B450004F766E /* BeveragesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeveragesListView.swift; sourceTree = "<group>"; };
+		522F65D92C67B46E004F766E /* BeverageEditForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageEditForm.swift; sourceTree = "<group>"; };
+		522F65DB2C67BE35004F766E /* BeverageContainerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageContainerEditView.swift; sourceTree = "<group>"; };
+		522F65DE2C67C03F004F766E /* NumberFormatter+Brew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Brew.swift"; sourceTree = "<group>"; };
 		52D108672C64FC34009FD324 /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		52D108692C65DA0C009FD324 /* BeverageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageCategory.swift; sourceTree = "<group>"; };
 		52D1086B2C65DA18009FD324 /* BeverageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageContainer.swift; sourceTree = "<group>"; };
@@ -57,11 +69,14 @@
 		5222FB9B2C5B1F5A000D9110 /* BrewCrew */ = {
 			isa = PBXGroup;
 			children = (
+				522F65DD2C67C026004F766E /* Shared */,
+				522F65D12C67B336004F766E /* Modules */,
 				52D108662C64FB4A009FD324 /* Models */,
 				5222FB9C2C5B1F5A000D9110 /* BrewCrewApp.swift */,
 				5222FB9E2C5B1F5A000D9110 /* ContentView.swift */,
 				5222FBA22C5B1F5C000D9110 /* Assets.xcassets */,
 				5222FBA42C5B1F5C000D9110 /* Preview Content */,
+				522F65CE2C67B27B004F766E /* Consts.swift */,
 			);
 			path = BrewCrew;
 			sourceTree = "<group>";
@@ -72,6 +87,41 @@
 				5222FBA52C5B1F5C000D9110 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		522F65D12C67B336004F766E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				522F65D42C67B350004F766E /* BeverageContainer */,
+				522F65D22C67B33B004F766E /* Beverage */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		522F65D22C67B33B004F766E /* Beverage */ = {
+			isa = PBXGroup;
+			children = (
+				522F65D72C67B450004F766E /* BeveragesListView.swift */,
+				522F65D92C67B46E004F766E /* BeverageEditForm.swift */,
+			);
+			path = Beverage;
+			sourceTree = "<group>";
+		};
+		522F65D42C67B350004F766E /* BeverageContainer */ = {
+			isa = PBXGroup;
+			children = (
+				522F65D52C67B429004F766E /* BeverageContainersListView.swift */,
+				522F65DB2C67BE35004F766E /* BeverageContainerEditView.swift */,
+			);
+			path = BeverageContainer;
+			sourceTree = "<group>";
+		};
+		522F65DD2C67C026004F766E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				522F65DE2C67C03F004F766E /* NumberFormatter+Brew.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		52D108662C64FB4A009FD324 /* Models */ = {
@@ -155,8 +205,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D1086A2C65DA0C009FD324 /* BeverageCategory.swift in Sources */,
+				522F65DC2C67BE35004F766E /* BeverageContainerEditView.swift in Sources */,
+				522F65D82C67B450004F766E /* BeveragesListView.swift in Sources */,
+				522F65D62C67B429004F766E /* BeverageContainersListView.swift in Sources */,
+				522F65DA2C67B46E004F766E /* BeverageEditForm.swift in Sources */,
 				5222FB9F2C5B1F5A000D9110 /* ContentView.swift in Sources */,
 				52D108682C64FC34009FD324 /* Beverage.swift in Sources */,
+				522F65DF2C67C03F004F766E /* NumberFormatter+Brew.swift in Sources */,
+				522F65CF2C67B27B004F766E /* Consts.swift in Sources */,
 				5222FB9D2C5B1F5A000D9110 /* BrewCrewApp.swift in Sources */,
 				52D1086C2C65DA18009FD324 /* BeverageContainer.swift in Sources */,
 			);

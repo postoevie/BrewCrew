@@ -10,19 +10,19 @@ import SwiftData
 @Model
 class BeverageContainer {
     
-    let name: String
-    let beverage: Beverage
-    let maxVolume: Double
-    let remainPart: Double
+    var type: String
+    var beverage: Beverage
+    var maxVolume: Double
+    var currentVolume: Double
     
-    init(name: String,
+    init(type: String,
          beverage: Beverage,
          maxVolume: Double,
-         remainPart: Double
+         currentVolume: Double
     ) {
-        self.name = name
+        self.type = type
         self.beverage = beverage
         self.maxVolume = maxVolume
-        self.remainPart = remainPart
+        self.currentVolume = currentVolume
     }
 }

@@ -8,72 +8,50 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var beverages: [Beverage]
+enum Route: Equatable, Hashable  {
+    case beverageEdit(Beverage)
+    case beverageContainersList(Beverage)
+    case beverageContainerEdit(BeverageContainer)
     
-    @State private var path: [Beverage] = []
-    
-    var body: some View {
-        NavigationStack(path: $path) {
-            List {
-                ForEach(beverages) { beverage in
-                    NavigationLink(value: beverage) {
-                        Text(beverage.name)
-                    }
-                    .swipeActions {
-                        Button {
-                            path = [beverage]
-                        } label: {
-                            Image(systemName: "square.and.pencil")
-                        }
-                        .tint(.orange)
-                        Button(role: .destructive) {
-                            delete(beverage)
-                        } label: {
-                            Label("Delete", systemImage: "trash")
-                        }
-                    }
-                }
-            }
-            .navigationDestination(for: Beverage.self) { beverage in
-                BeverageEditForm(beverage: beverage)
-            }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        }
+    static func == (lhs: Route, rhs: Route) -> Bool {
+        lhs.stringKey == rhs.stringKey
     }
     
-    private func addItem() {
-        withAnimation {
-            let beverage = Beverage(name: "")
-            modelContext.insert(beverage)
-            path = [beverage]
-        }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.stringKey)
     }
     
-    private func delete(_ beverage: Beverage) {
-        withAnimation {
-            modelContext.delete(beverage)
+    var stringKey: String {
+        switch self {
+        case .beverageContainersList:
+            "beverageContainer"
+        case .beverageEdit:
+            "beverageEdit"
+        case .beverageContainerEdit:
+            "beverageContainerEdit"
         }
     }
 }
 
-struct BeverageEditForm: View {
+struct ContentView: View {
+    @Environment(\.modelContext) private var modelContext
     
-    @Bindable var beverage: Beverage
+    @State private var navigationPath: [Route] = []
     
     var body: some View {
-        Form {
-            TextField("Name", text: $beverage.name)
+        NavigationStack(path: $navigationPath) {
+            BeveragesListView(path: $navigationPath)
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .beverageEdit(let beverage):
+                        BeverageEditForm(beverage: beverage)
+                    case .beverageContainersList(let beverage):
+                        BeverageContainersListView(path: $navigationPath, beverage: beverage)
+                    case .beverageContainerEdit(let container):
+                        BeverageContainerEditView(container: container)
+                    }
+                }
         }
-        .navigationTitle("Edit beverage")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
